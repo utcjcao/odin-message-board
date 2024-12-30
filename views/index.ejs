@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>           
+    <body>
+        <h1><%= title %>
+            <%- include('header', {}); %>
+        </h1>
+        <ul>
+            <% Object.entries(messages).forEach(([key, value]) => { %>
+                <%- include('message', {key: key, value: value}); %>
+            <% }); %>
+        </ul>
+    </body>
+</html>

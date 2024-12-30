@@ -1,0 +1,15 @@
+<div class="msg">
+    <div class="msg-text"><%= value.text %></div>
+    <div class="msg-info">
+        <div class="msg-content">
+            <%= value.user %>
+            <%= value.added %>
+        </div>
+        <form method="POST" action="/message/<%= key %>">
+            <button type="submit">read</button>
+        </form>
+    </div>
+    
+    
+</div>
+  

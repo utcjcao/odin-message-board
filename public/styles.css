@@ -1,0 +1,63 @@
+body {
+    display: grid;
+    grid-template-rows: 1fr 10fr;
+    margin: 0px;
+    padding: 0px;
+    font-family: monospace;
+}
+
+h1 {
+    background-color: antiquewhite;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: darkslategrey;
+}
+
+a:hover {
+    color: black;
+}
+
+.msg {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.msg-text {
+    font-size: large;
+}
+
+.msg-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.msg-info button {
+    padding-right: 5rem;
+}
+
+button {
+    background-color: white;
+    border: none;
+    font-family: monospace;
+
+}
+
+button:hover {
+    color: blue;
+}
+
+.text-large {
+    font-size: x-large;
+}
+
+.bold {
+    font-weight: bold;
+}

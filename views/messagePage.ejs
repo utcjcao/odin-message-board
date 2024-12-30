@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>   
+
+    <body>
+        <div>
+            <h1>
+                <%= title %>
+                <%- include('header', {}); %>
+            </h1>
+            <div class="msg">
+                <div class="msg-info">
+                    <div class="msg-content text-large bold">
+                        <%= value.user %>
+                    </div>
+                    <div class="msg-content text-large">
+                        <%= value.added %>
+                    </div>
+                </div>
+                <div class="msg-text text-large"><%= value.text %></div>
+            </div>
+            
+        </div>
+    </body>
+</html>
+
+
