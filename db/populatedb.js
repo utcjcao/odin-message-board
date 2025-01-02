@@ -15,10 +15,12 @@ INSERT INTO messages (id, name, message) VALUES (1, 'Charles', 'Hello World!');
 
 `;
 
+const connectionString = process.env.DATABASE_URL;
+
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.POSTGRES_DB}`,
+    connectionString: connectionString,
   });
   await client.connect();
   await client.query(SQL);

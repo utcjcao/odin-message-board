@@ -34,7 +34,7 @@ app.post("/message/:id", async (req, res) => {
   await getMessage(req, res);
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`My first Express app - listening on port ${PORT}!`);
 });
