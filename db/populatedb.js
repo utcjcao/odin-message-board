@@ -15,12 +15,10 @@ INSERT INTO messages (id, name, message) VALUES (1, 'Charles', 'Hello World!');
 
 `;
 
-const connectionString = process.argv.slice(2)[0];
-
-async function main() {
+async function populatedb() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: connectionString,
+    connectionString: process.env.DATABASE_URL,
   });
   await client.connect();
   await client.query(SQL);
@@ -28,4 +26,4 @@ async function main() {
   console.log("done");
 }
 
-main();
+module.exports = { populatedb };

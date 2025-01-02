@@ -7,6 +7,7 @@ const {
   newMessageGet,
   getMessage,
 } = require("./controllers/messageController");
+const { populatedb } = require("./db/populatedb");
 
 const app = new express();
 
@@ -33,6 +34,8 @@ app.post("/new", async (req, res) => {
 app.post("/message/:id", async (req, res) => {
   await getMessage(req, res);
 });
+
+await populatedb();
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
