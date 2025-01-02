@@ -15,7 +15,7 @@ INSERT INTO messages (id, name, message) VALUES (1, 'Charles', 'Hello World!');
 
 `;
 
-const connectionString = process.env.DATABASE_URL;
+const connectionString = process.argv.slice(2)[0];
 
 async function main() {
   console.log("seeding...");
