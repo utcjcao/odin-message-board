@@ -17,9 +17,10 @@ async function getMessage(id) {
 }
 
 async function postMessage(name, message, id) {
+  const created_at = new Date();
   await pool.query(
-    "INSERT INTO messages (name, message, id) VALUES ($1, $2, $3);",
-    [name, message, id]
+    "INSERT INTO messages (name, message, created_at, id) VALUES ($1, $2, $3, $4);",
+    [name, message, created_at, id]
   );
 }
 

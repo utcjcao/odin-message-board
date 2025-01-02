@@ -35,7 +35,11 @@ app.post("/message/:id", async (req, res) => {
   await getMessage(req, res);
 });
 
-populatedb();
+try {
+  populatedb();
+} catch {
+  console.log("populate db error");
+}
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

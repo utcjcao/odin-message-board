@@ -7,11 +7,11 @@ CREATE TABLE IF NOT EXISTS messages (
   id INTEGER PRIMARY KEY,
   name TEXT,
   message TEXT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  created_at TIMESTAMP
 );
 
-INSERT INTO messages (id, name, message) VALUES (0, 'Amando', 'Hi there!');
-INSERT INTO messages (id, name, message) VALUES (1, 'Charles', 'Hello World!');
+INSERT INTO messages (id, name, message, created_at) VALUES (0, 'Amando', 'Hi there!', CURRENT_TIMESTAMP);
+INSERT INTO messages (id, name, message, created_at) VALUES (1, 'Charles', 'Hello World!', CURRENT_TIMESTAMP);
 
 `;
 
