@@ -7,8 +7,8 @@
             <%- include('header', {}); %>
         </h1>
         <ul>
-            <% Object.entries(messages).forEach(([key, value]) => { %>
-                <%- include('message', {key: key, value: value}); %>
+            <% messages.map((message) => { %>
+                <%- include('message', {value: message}); %>
             <% }); %>
         </ul>
     </body>

@@ -1,55 +1,37 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import express from "express";
+const path = require("path");
+const { fileURLToPath } = require("url");
+const express = require("express");
+const {
+  allMessagesGet,
+  newMessagePost,
+  newMessageGet,
+  getMessage,
+} = require("./controllers/messageController");
+
 const app = new express();
 
-const __filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(__filename);
-
-app.set("views", path.join(dirname, "views"));
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-const assetsPath = path.join(dirname, "public");
+const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
-let id = 2;
-
-let messages = {
-  0: {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  1: {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-};
-
-app.get("/", (req, res) => {
-  res.render("index", { title: "Mini Messageboard", messages: messages });
+app.get("/", async (req, res) => {
+  await allMessagesGet(req, res);
+  console.log("hello");
 });
 
-app.get("/new", (req, res) => {
-  res.render("form", { title: "Mini Messageboard", messages: messages });
+app.get("/new", async (req, res) => {
+  await newMessageGet(req, res);
 });
 
-app.post("/new", (req, res) => {
-  const name = req.body.name;
-  const message = req.body.message;
-  messages[id] = { text: message, user: name, added: new Date() };
-  id += 1;
-  res.redirect("/");
+app.post("/new", async (req, res) => {
+  await newMessagePost(req, res);
 });
 
-app.post("/message/:id", (req, res) => {
-  const id = req.params.id;
-  res.render("messagePage", {
-    title: "Mini Messageboard",
-    value: messages[id],
-  });
+app.post("/message/:id", async (req, res) => {
+  await getMessage(req, res);
 });
 
 const PORT = 3001;

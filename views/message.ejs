@@ -1,11 +1,11 @@
 <div class="msg">
-    <div class="msg-text"><%= value.text %></div>
+    <div class="msg-text"><%= value.message %></div>
     <div class="msg-info">
         <div class="msg-content">
-            <%= value.user %>
-            <%= value.added %>
+            <%= value.name %>
+            <%= value.created_at %>
         </div>
-        <form method="POST" action="/message/<%= key %>">
+        <form method="POST" action="/message/<%= value.id %>">
             <button type="submit">read</button>
         </form>
     </div>
